@@ -1,0 +1,109 @@
+<html ng-app="homework1">
+<head>
+	<title>AngularJS - Homework #1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<style>
+		body.default {
+			background: white;
+		}
+		body.red {
+			background: red;
+		}
+		body.blue {
+			background: blue;
+		}
+		body.orange {
+			background: orange;
+		}
+		body.yellow {
+			background: yellow;
+		}
+		body.purple {
+			background: purple;
+		}
+		body.red div#div2 {}
+		#div2.white {
+			background: white;
+		}
+		#div3.white {
+			background: white;
+		}
+		#div2.red {
+			background: #4C0F0F;
+		}
+		#div3.red {
+			background: #FF9999;
+		}
+		#div2.blue {
+			background: #003380;
+		}
+		#div3.blue {
+			background: #80B2FF;
+		}
+		#div2.orange {
+			background: #B26B00;
+		}
+		#div3.orange {
+			background: #FFD699;
+		}
+		#div2.yellow {
+			background: #B2B200;
+		}
+		#div3.yellow {
+			background: #FFFF99;
+		}
+		#div2.purple {
+			background: #5C1F99;
+		}
+		#div3.purple {
+			background: #E0C2FF;
+		}
+	</style>
+</head>
+
+<body ng-class="ctrl.theme.choice" ng-controller="MyController as ctrl">
+	<div class="div1">
+		<b><label>Select a theme:</label></b>
+		<div ng-repeat="picker in ctrl.theme.color">
+			<input ng-value="picker" ng-model="ctrl.theme.choice" type="radio">
+			<label>{{picker}}</label>
+		</div>
+		<div id="div2" ng-class="ctrl.theme.choice">
+			<h4>
+					Hello I am div2
+				</h4>
+		</div>
+		<div id="div3" ng-class="ctrl.theme.choice">
+			<h3>
+					Hello I am div3
+				</h3>
+		</div>
+	</div>
+	<!-- line break for part 2 -->
+	<hr>
+	<input type="checkbox" ng-model="ctrl.check" ng-click="ctrl.hide()">Hide all</a>
+	<ul>
+	<div ng-repeat="folder in ctrl.folders">
+		<b><p ng-bind="folder.name"></p></b>
+		<div ng-hide="ctrl.display">
+			<ul>
+				<li ng-repeat="file in folder.files">
+				{{file}}
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+	</ul>
+	<div>
+		<input type="text" ng-model="ctrl.userInput">
+		<button ng-click="ctrl.addItem(ctrl.userInput)">Add Item</button>
+		<div ng-repeat="folder in ctrl.folders">
+			<input ng-value="folder" ng-model="ctrl.userSelection" type="radio">
+			<label>{{folder.name}}</label>
+		</div>
+	</div>
+</body>
+
+</html>
