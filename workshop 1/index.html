@@ -1,0 +1,25 @@
+<html ng-app="Lesson03">
+	<head>
+		<title>Lesson 3</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body ng-controller="MyController as ctrl">
+		<div ng-hide="ctrl.isEditing">
+			<div>
+				<label>First: </label><span ng-bind="ctrl.user.first"></span><br>
+			</div>
+			<div>
+				<label>Last: </label><span ng-bind="ctrl.user.last"></span><br>
+			</div>
+			<button ng-click="ctrl.setEdit()">Edit</button>
+		</div>
+		<div ng-show="ctrl.isEditing">
+			
+			<label>First:</label><input ng-model="ctrl.userEdit.first" type="text"><br>
+			<label>Last:</label><input ng-model="ctrl.userEdit.last" type="text"><br>
+			<button ng-click="ctrl.save()">Save</button>
+			<button ng-click="ctrl.cancelEdit()">Cancel</button>
+		</div>
+	</body>
+</html>
