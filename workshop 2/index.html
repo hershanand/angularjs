@@ -1,0 +1,32 @@
+<html ng-app="workshop2">
+<head>
+	<title>AngularJS - Workshop #2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body ng-controller="MyController as ctrl">
+	<div>
+		<b><label>Name:</label></b><br>
+		<input ng-model="ctrl.userName" placeholder="Enter Your Name" type="text"><br>
+		<b><label>Assignment:</label></b><br>
+		<input ng-model="ctrl.userAssignment" placeholder="Enter the Assignment Name" type="text"><br>
+		<input ng-model="ctrl.userGrade" placeholder="Enter the Assignment Grade" type="number"><br><br>
+		<button ng-click="ctrl.student.addAssignment(ctrl.userAssignment, ctrl.userGrade)">Add</button>
+	</div>
+	<!-- line break for part 2 -->
+	<hr>
+	<div>
+		<table>
+			<tr><th><center>Assignments</center></th><th><center>Totals</center></th></tr>
+			<tr><td><div ng-repeat="assignment in ctrl.student.assignments">
+			<p ng-bind="assignment.name"></p>
+			<p ng-bind="assignment.score"></p>
+			</div></td><td ng-bind="ctrl.student.average"></td>
+			<td ng-bind="ctrl.student.grade"></td>
+			<td ng-bind="ctrl.student.pass"></td></tr>
+		</table>
+	</div>
+</body>
+
+</html>
